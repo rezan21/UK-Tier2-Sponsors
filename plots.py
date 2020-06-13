@@ -73,3 +73,38 @@ class Plot():
         )
 
         return fig
+
+    def search_tb(self, term):
+        def lookFor(row, term):
+            if term.lower() in row["company"].lower():
+                return row.name
+        results = self.df.apply(lookFor, axis=1, args=(term,))
+        df = self.df.loc[results.dropna().index]
+
+        tableDF = df.reset_index(drop=False)
+
+        h_values = tableDF.columns.tolist()
+        c_values = [tableDF[h] for h in h_values]
+        h_values = [f"<b>{h}</b>" for h in h_values] # bold headers
+
+        fig = go.Figure(data=[go.Table(
+            header=dict(
+                values=h_values,
+                fill_color='#3b3b3b',
+                line_color="black",
+                align='left', font=dict(color='white', size=11)),
+            cells=dict(
+                values=c_values,
+                line_color="black",
+                align='left', font=dict(color='black', size=11))
+            )
+        ])
+        fig.update_layout(
+            title=f'new title',
+            # autosize=False,
+            # width=500,
+            # height=500,
+            margin=dict(l=10, r=10, b=5, t=100, pad=0),
+            )
+        return fig
+

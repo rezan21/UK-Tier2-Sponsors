@@ -1,8 +1,14 @@
-.container{
+/* .container{
+    display: grid;
+    grid-template-rows: auto
+    height:100vh
+} */
+
+.second-row{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* height:100vh */
 }
+
 
 .slider{
     width:200px;

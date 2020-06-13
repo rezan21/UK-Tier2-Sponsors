@@ -1,0 +1,15 @@
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* height:100vh */
+}
+
+.slider{
+    width:200px;
+    text-align: center;
+    margin: 0 auto;
+}
+body{
+    margin:0;
+    padding: 0;
+}

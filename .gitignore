@@ -1,4 +1,6 @@
-/mylocals
+# Developers
+notebooks/
+.gcloudignore
 .DS_Store
 app/.vscode
 .vscode
